@@ -13,8 +13,6 @@ body{
 div{
   align-items: center;
   justify-content: center;
-
-
 }
 h1{
   display: flex;
@@ -23,10 +21,22 @@ h1{
   margin: 10px;
 }
 
-body button{
+body button {
   background: mediumspringgreen;
   font-size: larger;
   padding: 10px;
   margin: 10px;
+}
 
+form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+input{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
