@@ -1,43 +1,31 @@
-import React, { use } from 'react'
-import Card from './Card'
-import { element } from 'three/tsl'
+import axios from 'axios'
+import React, { useState } from 'react'
+import { div } from 'three/tsl';
 
-const App = () => {
-  const a = 10
+const App =  () => {
 
-  const user = [
-    {
-      "name": "Rahul Sharma",
-      "age": 25,
-      "profession": "Software Developer",
-      "profilePhoto": "C:/Users/vrajm/First_Project/src/assets/user.png"
-    },
-    {
-      "name": "Priya Patel",
-      "age": 28,
-      "profession": "Graphic Designer",
-      "profilePhoto": "images/priya.jpg"
-    },
-    {
-      "name": "Amit Verma",
-      "age": 30,
-      "profession": "Project Manager",
-      "profilePhoto": "images/amit.jpg"
-    },
-    {
-      "name": "Neha Singh",
-      "age": 24,
-      "profession": "Frontend Developer",
-      "profilePhoto": "images/neha.jpg"
-    }
-  ]
+  const [data, setData] = useState([]);
 
+  const get_data = async () =>{
+    const response = await axios.get("https://picsum.photos/v2/list")
+    console.log(response);
+    setData(response.data)
+    console.log(data);
+    
+  }
 
-  
   return (
-     user.map((elem)=>{
-      return <Card img={elem.profilePhoto} username={elem.name} Profestion={elem.profession} age={elem.age}/>
-    })
+    <div className='main'> 
+      <button onClick={get_data}>GetData</button>
+      {
+        data.map((elem)=>{
+            return <div className='img_container'>
+              <img src={elem.download_url} alt="" />
+              <h1>{elem.author}</h1>
+              </div>
+        })
+      }
+    </div>
   )
 }
 

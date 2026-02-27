@@ -1,6 +1,6 @@
 import React, { use } from 'react'
 
-const Card = (props) => {
+const Card = async () => {
 
 
     
