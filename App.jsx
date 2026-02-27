@@ -10,7 +10,7 @@ const App = () => {
       "name": "Rahul Sharma",
       "age": 25,
       "profession": "Software Developer",
-      "profilePhoto": "images/rahul.jpg"
+      "profilePhoto": "C:/Users/vrajm/First_Project/src/assets/user.png"
     },
     {
       "name": "Priya Patel",
@@ -36,7 +36,7 @@ const App = () => {
   
   return (
      user.map((elem)=>{
-      return <Card />
+      return <Card img={elem.profilePhoto} username={elem.name} Profestion={elem.profession} age={elem.age}/>
     })
   )
 }
