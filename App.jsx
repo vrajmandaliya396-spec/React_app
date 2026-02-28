@@ -1,24 +1,23 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import { div } from 'three/tsl'
-import Home from './home';
-import About from './about';
+import { Routes, Route } from 'react-router-dom'
 
-
-
-
+import Home from './components/Home'
+import About from './components/About'
+import Product from './components/Product'
+import Hader from "./Hader"
 
 const App = () => {
-  return (
-    <div>
-    <Header />
+        
 
-    <Routes>
-      <Route path='/home' element={<Home />}/>
-      <Route path='/about' element={<About />}>About</Route>
-      <Route path='/contact' element={<contact/>}>Contact</Route>
-      <Route path='/projects' element={<projects/>}>Projects</Route>
-    </Routes>
+  return (
+    
+    <div>
+      <Hader />
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/products" element={<Product />} />
+      </Routes>
     </div>
   )
 }
