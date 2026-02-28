@@ -1,30 +1,20 @@
-import axios from 'axios'
-import React, { useState } from 'react'
-import { div } from 'three/tsl';
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import { div } from 'three/tsl'
+import Home from './home';
+import About from './about';
 
-const App =  () => {
 
-  const [data, setData] = useState([]);
 
-  const get_data = async () =>{
-    const response = await axios.get("https://picsum.photos/v2/list")
-    console.log(response);
-    setData(response.data)
-    console.log(data);
-    
-  }
-
+const App = () => {
   return (
-    <div className='main'> 
-      <button onClick={get_data}>GetData</button>
-      {
-        data.map((elem)=>{
-            return <div className='img_container'>
-              <img src={elem.download_url} alt="" />
-              <h1>{elem.author}</h1>
-              </div>
-        })
-      }
+    <div>
+    <Routes>
+      <Route path='/home' element={<Home />}/>
+      <Route path='/about' element={<About />}>About</Route>
+      <Route path='/contact' element={<contact/>}>Contact</Route>
+      <Route path='/projects' element={<projects/>}>Projects</Route>
+    </Routes>
     </div>
   )
 }
